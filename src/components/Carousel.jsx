@@ -7,6 +7,7 @@ import { Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from 'swiper/modules';
 import 'swiper/css/navigation';
+import Category from "./Category";
 
 
 const Carousel = () => {
@@ -14,7 +15,7 @@ const Carousel = () => {
   useEffect(() => {
     fetchAllProducts();
   }, []);
-  console.log(data);
+  // console.log(data);
 
   return (
     <>
@@ -67,6 +68,8 @@ const Carousel = () => {
           );
         })}
       </Swiper>
+
+      <Category/>
     </>
   );
 };

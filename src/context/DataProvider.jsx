@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import {  useState } from "react";
 import DataContext from "./DataContext";
 export const DataProvider = ({ children }) => {
   const [data, setData] = useState();
@@ -15,9 +15,20 @@ export const DataProvider = ({ children }) => {
       console.log(error);
     }
   };
+
+   const getUniqueCategory = (data, property) => {
+      let newVal = data?.map((curtLen) => {
+        return curtLen[property];
+      });
+      newVal = [...new Set(newVal)];
+      return newVal;
+    };
+    const categoryOnly = getUniqueCategory(data, "category");
+
   return (
-    <DataContext.Provider value={{ data, setData, fetchAllProducts }}>
+    <DataContext.Provider value={{ data, setData, fetchAllProducts, categoryOnly }}>
       {children}
     </DataContext.Provider>
   );
 };
+
