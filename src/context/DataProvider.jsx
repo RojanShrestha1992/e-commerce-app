@@ -10,7 +10,7 @@ export const DataProvider = ({ children }) => {
       const res = await axios.get("https://fakestoreapiserver.reactbd.org/api/products");
       // console.log(res);
       const productsData = res.data.data;
-      console.log(productsData)
+      // console.log(productsData)
       setData(productsData)
     } catch (error) {
       console.log(error);
