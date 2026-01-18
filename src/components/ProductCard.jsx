@@ -14,7 +14,7 @@ const ProductCard = ({ product }) => {
       <img
         src={product.image}
         alt=""
-        className="bg-gray-100 aspect-square"
+        className="bg-gray-100 aspect-square w-full object-cover"
         onClick={() => navigate(`/products/${product._id}`)}
       />
       <h1 className="line-clamp-2 p-1 font-semibold ">{product.title}</h1>

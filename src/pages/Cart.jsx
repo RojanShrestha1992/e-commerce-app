@@ -5,17 +5,19 @@ import { LuNotebook, LuNotebookText } from "react-icons/lu";
 import { MdDeliveryDining } from "react-icons/md";
 import { GiShoppingBag } from "react-icons/gi";
 import { useUser } from "@clerk/clerk-react";
+import { useNavigate } from "react-router-dom";
+import emptyCart from "../assets/empty-cart.png"
 
-const Cart = () => {
-  const { cartItem } = useCart();
-
+const Cart = ({location,getLocation}) => {
+  const { cartItem, updateQuantity, deleteItem } = useCart();
+  const navigate = useNavigate()
   const {user} = useUser()
   console.log(user)
 
 
   const totalPrice = cartItem.reduce((total, item) => total + item.price, 0);
   return (
-    <div className="mt-10 max-w-6xl mx-auto mb-5 ">
+    <div className=" max-w-6xl mx-auto mb-5 ">
       {cartItem.length > 0 ? (
         <div className="">
           <h1 className="font-bold text-2xl">My Cart ({cartItem.length})</h1>
@@ -41,11 +43,11 @@ const Cart = () => {
                       </div>
                     </div>
                     <div className="bg-red-500 text-white flex gap-4 p-2 rounded-md font-bold text-xl">
-                      <button className="cursor-pointer ">-</button>
-                      <span>{1}</span>
-                      <button className="cursor-pointer">+</button>
+                      <button className="cursor-pointer " onClick={()=>updateQuantity(cartItem,item._id, "decrease")} >-</button>
+                      <span>{item.quantity}</span>
+                      <button className="cursor-pointer" onClick={()=>updateQuantity(cartItem, item._id, "increase")}>+</button>
                     </div>
-                    <span className="hover:bg-white/60 transition-all rounded-full p-3 shadow-2xl">
+                    <span className="hover:bg-white/60 transition-all rounded-full p-3 shadow-2xl" onClick={()=>deleteItem(item._id)}>
                       <FaRegTrashAlt className="w-6 h-6 text-red-500 text-2xl cursor-pointer" />
                     </span>
                   </div>
@@ -64,6 +66,7 @@ const Cart = () => {
                     type="text"
                     className="p-2 rounded-md"
                     placeholder="Enter Your Name"
+                    value={user.fullName}
                   />
                 </div>
                 <div className="flex flex-col space-y-1">
@@ -72,6 +75,7 @@ const Cart = () => {
                     type="text"
                     className="p-2 rounded-md"
                     placeholder="Enter Your Address"
+                    value={location?.county}
                   />
                 </div>
                 <div className="flex w-full  gap-5">
@@ -81,14 +85,16 @@ const Cart = () => {
                       type="text"
                       placeholder="Enter your State"
                       className="p-2 rounded-md w-full"
+                      value={location.state}
                     />
                   </div>
                   <div className="flex flex-col space-y-1 w-full">
-                    <label htmlFor="">Post Code</label>
+                    <label htmlFor="">Postal Code</label>
                     <input
                       type="text"
                       placeholder="Enter your Post Code"
                       className="p-2 rounded-md w-full"
+                      value={location.postcode}
                     />
                   </div>
                 </div>
@@ -99,6 +105,7 @@ const Cart = () => {
                       type="text"
                       placeholder="Enter your Country"
                       className="p-2 rounded-md w-full"
+                      value={location.country}
                     />
                   </div>
                   <div className="flex flex-col space-y-1 w-full">
@@ -117,7 +124,7 @@ const Cart = () => {
                   ---------OR----------
                 </div>
                 <div className="flex justify-center">
-                  <button className="bg-red-500 text-white px-3 py-2 rounded-md">
+                  <button onClick={getLocation} className="bg-red-500 text-white px-3 py-2 rounded-md">
                     Detect Location
                   </button>
                 </div>
@@ -174,7 +181,11 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <div> cart is empty</div>
+        <div className="flex flex-col gap-3 justify-center items-center h-150"> 
+        <h1 className="text-red-500/80 font-bold text-5xl text-muted">Cart Is Empty</h1>
+        <img src={emptyCart} alt="" className="w-70" />
+        <button className="bg-red-500 text-white py-2 rounded-md  px-3 cursor-pointer" onClick={()=>navigate('/products')}>Continue Shopping</button>
+        </div>
       )}
     </div>
   );

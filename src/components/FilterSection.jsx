@@ -31,10 +31,10 @@ const FilterSection = ({search,category,setCategory, setSearch, priceRange,handl
         <h1 className="mt-5 font-semibold text-xl">Price</h1>
         <div className="flex flex-col gap-2">
           <label htmlFor="">Price Range: ${priceRange[0]} - ${priceRange[1]}</label>
-          <input type="range" min="0" max="5000" value={priceRange[1] } onChange={(e)=>setPriceRange([priceRange[0],Number(e.target.value)])}  />
+          <input type="range" min="0" max="1000" value={priceRange[1] } onChange={(e)=>setPriceRange([priceRange[0],Number(e.target.value)])}  />
         </div>
         <button className="bg-red-500 text-white rounded-md px-3 py-1 mt-5 cursor-pointer"
-        onClick={()=>{ setSearch(""); setCategory("All"); setPriceRange([0,5000])}}
+        onClick={()=>{ setSearch(""); setCategory("All"); setPriceRange([0,1000])}}
         >
           Reset Filters
         </button>

@@ -16,12 +16,13 @@ function App() {
   const getLocation = async () => {
     navigator.geolocation.getCurrentPosition(async pos => {
       const {latitude, longitude} = pos.coords
-      console.log(latitude,longitude);
+      // console.log(latitude,longitude);
       const url = `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
       try{
         const location = await axios.get(url)
         // console.log(location)
         const exactLocation = location.data.address
+        console.log(exactLocation)
         setLocation(exactLocation)
         setOpenDropDown(false)
       }catch (error){
@@ -44,7 +45,7 @@ function App() {
 
         <Route path="/about" element={<About />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
-        <Route path="/cart" element={<Cart />}></Route>
+        <Route path="/cart" element={<Cart location={location} getLocation={getLocation}/>}></Route>
       </Routes>
       <Footer/>
     </BrowserRouter>
