@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useCart } from "../context/useCart";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { LuNotebook, LuNotebookText } from "react-icons/lu";
@@ -12,10 +12,20 @@ const Cart = ({location,getLocation}) => {
   const { cartItem, updateQuantity, deleteItem } = useCart();
   const navigate = useNavigate()
   const {user} = useUser()
-  console.log(user)
+  // console.log(user)
+  const [fullName, setfullName] = useState("")
+  
+  
+
+  useEffect(()=>{
+    if(user?.fullName ){
+      setfullName(user.fullName)
+    }
+
+  }, [])
 
 
-  const totalPrice = cartItem.reduce((total, item) => total + item.price, 0);
+  const totalPrice = cartItem.reduce((total, item) => total + item.quantity*item.price, 0);
   return (
     <div className=" max-w-6xl mx-auto mb-5 ">
       {cartItem.length > 0 ? (
@@ -31,7 +41,7 @@ const Cart = ({location,getLocation}) => {
                   >
                     <div className="flex items-center gap-4">
                       <img
-                        src={item.image}
+                        src={item.images[0]}
                         alt={item.title}
                         className="w-20 h-20 rounded-md"
                       />
@@ -43,11 +53,11 @@ const Cart = ({location,getLocation}) => {
                       </div>
                     </div>
                     <div className="bg-red-500 text-white flex gap-4 p-2 rounded-md font-bold text-xl">
-                      <button className="cursor-pointer " onClick={()=>updateQuantity(cartItem,item._id, "decrease")} >-</button>
+                      <button className="cursor-pointer " onClick={()=>updateQuantity(cartItem,item.id, "decrease")} >-</button>
                       <span>{item.quantity}</span>
-                      <button className="cursor-pointer" onClick={()=>updateQuantity(cartItem, item._id, "increase")}>+</button>
+                      <button className="cursor-pointer" onClick={()=>updateQuantity(cartItem, item.id, "increase")}>+</button>
                     </div>
-                    <span className="hover:bg-white/60 transition-all rounded-full p-3 shadow-2xl" onClick={()=>deleteItem(item._id)}>
+                    <span className="hover:bg-white/60 transition-all rounded-full p-3 shadow-2xl" onClick={()=>deleteItem(item.id)}>
                       <FaRegTrashAlt className="w-6 h-6 text-red-500 text-2xl cursor-pointer" />
                     </span>
                   </div>
@@ -66,7 +76,8 @@ const Cart = ({location,getLocation}) => {
                     type="text"
                     className="p-2 rounded-md"
                     placeholder="Enter Your Name"
-                    value={user.fullName}
+                    value={fullName}
+                    onChange={(e)=>setfullName(e.target.value)}
                   />
                 </div>
                 <div className="flex flex-col space-y-1">
@@ -76,6 +87,7 @@ const Cart = ({location,getLocation}) => {
                     className="p-2 rounded-md"
                     placeholder="Enter Your Address"
                     value={location?.county}
+                    
                   />
                 </div>
                 <div className="flex w-full  gap-5">
@@ -85,7 +97,7 @@ const Cart = ({location,getLocation}) => {
                       type="text"
                       placeholder="Enter your State"
                       className="p-2 rounded-md w-full"
-                      value={location.state}
+                      value={location?.state}
                     />
                   </div>
                   <div className="flex flex-col space-y-1 w-full">
@@ -94,7 +106,7 @@ const Cart = ({location,getLocation}) => {
                       type="text"
                       placeholder="Enter your Post Code"
                       className="p-2 rounded-md w-full"
-                      value={location.postcode}
+                      value={location?.postcode}
                     />
                   </div>
                 </div>
@@ -105,7 +117,7 @@ const Cart = ({location,getLocation}) => {
                       type="text"
                       placeholder="Enter your Country"
                       className="p-2 rounded-md w-full"
-                      value={location.country}
+                      value={location?.country}
                     />
                   </div>
                   <div className="flex flex-col space-y-1 w-full">

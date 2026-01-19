@@ -5,17 +5,17 @@ import { useCart } from "../context/useCart";
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
-  const { addToCart, cartItem } = useCart();
-    console.log(cartItem)
+  const { addToCart,  } = useCart();
+    // console.log(cartItem)
 
   // console.log(product);
   return (
     <div className="border relative border-gray-100 rounded-2xl cursor-pointer hover:scale-105 justify-around hover:shadow-2xl transition-all h-full flex flex-col p-2">
       <img
-        src={product.image}
+        src={product.images[0]}
         alt=""
         className="bg-gray-100 aspect-square w-full object-cover"
-        onClick={() => navigate(`/products/${product._id}`)}
+        onClick={() => navigate(`/products/${product.id}`)}
       />
       <h1 className="line-clamp-2 p-1 font-semibold ">{product.title}</h1>
       <p className="my-1 text-lg text-gray-800 font-bold">${product.price}</p>

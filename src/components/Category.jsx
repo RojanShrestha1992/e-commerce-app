@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import DataContext from "../context/DataContext";
+import { useNavigate } from "react-router-dom";
 
 const Category = () => {
   const { categoryOnly } = useContext(DataContext);
- 
+  const navigate = useNavigate()
   // console.log(categoryOnly);
 
   return (
@@ -12,7 +13,7 @@ const Category = () => {
         {categoryOnly.map((item, index) => {
           return (
             <div key={index}>
-              <button className="uppercase bg-linear-to-r from-red-500 to-purple-500 text-white px-3 py-1 rounded-md cursor-pointer">
+              <button onClick={()=>navigate(`/category/${item}`)} className="uppercase bg-linear-to-r from-red-500 to-purple-500 text-white px-3 py-1 rounded-md cursor-pointer">
                 {item}
               </button>
             </div>

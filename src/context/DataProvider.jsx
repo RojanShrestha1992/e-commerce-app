@@ -7,9 +7,11 @@ export const DataProvider = ({ children }) => {
   // fetch all products
   const fetchAllProducts = async () => {
     try {
-      const res = await axios.get("https://fakestoreapiserver.reactbd.org/api/products");
+      // const res = await axios.get("https://fakestoreapiserver.reactbd.org/api/products");
+      const res = await axios.get("https://api.escuelajs.co/api/v1/products");
+
       // console.log(res);
-      const productsData = res.data.data;
+      const productsData = res.data;
       // console.log(productsData)
       setData(productsData)
     } catch (error) {
@@ -17,14 +19,21 @@ export const DataProvider = ({ children }) => {
     }
   };
 
-   const getUniqueCategory = (data, property) => {
-      let newVal = data?.map((curtLen) => {
-        return curtLen[property];
-      });
-      newVal = ["All",...new Set(newVal)];
-      return newVal;
-    };
-    const categoryOnly = getUniqueCategory(data, "category");
+  //  const getUniqueCategory = (data, property) => {
+  //     let newVal = data?.map((curtLen) => {
+  //       return curtLen[property];
+  //     });
+  //     newVal = ["all",...new Set(newVal)];
+  //     return newVal;
+  //   };
+  //   const categoryOnly = getUniqueCategory(data, "category");
+  const getUniqueCategory = (data) => {
+  const categories = data?.map(item => item.category.name);
+  return ["all", ...new Set(categories)];
+};
+
+const categoryOnly = getUniqueCategory(data);
+
 
     const brandOnly = getUniqueCategory(data, "brand")
   return (

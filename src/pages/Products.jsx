@@ -7,7 +7,7 @@ import Pagination from "../components/Pagination";
 import Lottie from "lottie-react";
 // import { Pagination } from "swiper/modules";
 // impot Pagination
-import notfound from "../assets/notfound.json"
+// import notfound from "../assets/notfound.json"
 
 const Products = () => {
   const { data, fetchAllProducts } = useContext(DataContext);
@@ -19,7 +19,7 @@ const Products = () => {
 
   useEffect(() => {
     fetchAllProducts();
-  }, []);
+  }, [fetchAllProducts]);
 
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
@@ -27,7 +27,7 @@ const Products = () => {
   const filteredData = data?.filter(
     (item) =>
       item.title.toLowerCase().includes(search.toLowerCase()) &&
-      (category === "All" || item.category === category) &&
+      (category === "All" || item.category.name === category) &&
       item.price >= priceRange[0] &&
       item.price <= priceRange[1]
   );
