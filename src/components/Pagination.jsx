@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 const getPages = (current, total) => {
   const pages = [];
   if (total <= 5) {
@@ -14,9 +14,12 @@ const getPages = (current, total) => {
       pages.push(1, "...", current - 1, current, current + 1, "...", total);
     }
   }
-  return pages
+  return pages;
 };
 const Pagination = ({ page, pageHandler, dynamicPage }) => {
+  useEffect(()=>{
+    window.scrollTo({top:0, behavior:"smooth"})
+  },[page])
   return (
     <div className="mt-10 space-x-4">
       <button
@@ -24,7 +27,7 @@ const Pagination = ({ page, pageHandler, dynamicPage }) => {
         className={`${
           page === 1 ? "bg-red-400" : "bg-red-500"
         } text-white rounded-md cursor-pointer px-3 py-1`}
-        onClick={()=>pageHandler(page-1)}
+        onClick={() => pageHandler(page - 1)}
       >
         Prev
       </button>
@@ -33,7 +36,7 @@ const Pagination = ({ page, pageHandler, dynamicPage }) => {
           <span
             key={index}
             onClick={() => typeof item === "number" && pageHandler(item)}
-            className={`cursor-pointer ${item===page ? "font-bold text-red-600" : ""}`}
+            className={`cursor-pointer ${item === page ? "font-bold text-red-600" : ""}`}
           >
             {item}
           </span>
@@ -44,7 +47,10 @@ const Pagination = ({ page, pageHandler, dynamicPage }) => {
         className={`${
           page === dynamicPage ? "bg-red-400" : "bg-red-500"
         } text-white rounded-md cursor-pointer px-3 py-1`}
-        onClick={()=>pageHandler(page+1)}
+        onClick={() => {
+          pageHandler(page + 1);
+       
+        }}
       >
         Next
       </button>

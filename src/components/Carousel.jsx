@@ -15,7 +15,7 @@ const Carousel = () => {
   const { data, fetchAllProducts } = useContext(DataContext);
   useEffect(() => {
     fetchAllProducts();
-  }, [fetchAllProducts]);
+  }, []);
   // console.log("carosel", data);
 
 const navigate = useNavigate()
