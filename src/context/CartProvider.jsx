@@ -1,9 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CartContext from "./CartCOntext";
 import { toast } from "react-toastify";
 
 export const CartProvider = ({ children }) => {
-  const [cartItem, setCartItem] = useState([]);
+  
+    const [cartItem, setCartItem] = useState(() => {
+    const storedCart = localStorage.getItem("cartItem");
+    return storedCart ? JSON.parse(storedCart) : [];
+  });
+
+  // Save cart to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("cartItem", JSON.stringify(cartItem));
+  }, [cartItem]);
   const addToCart = (product) => {
     const itemInCart = cartItem.find((item) => item.id === product.id);
     if (itemInCart) {

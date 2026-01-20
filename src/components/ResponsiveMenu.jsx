@@ -2,6 +2,12 @@ import { UserButton, useUser } from "@clerk/clerk-react";
 import React from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  
+} from "@clerk/clerk-react";
 
 const ResponsiveMenu = ({ openNav, setOpenNav }) => {
   const { user } = useUser();
@@ -11,7 +17,11 @@ const ResponsiveMenu = ({ openNav, setOpenNav }) => {
     >
         <div>
       <div className="flex items-center justify-start gap-3">
-        {user ? <UserButton size={50} /> : <FaUserCircle size={50} />}
+        {user ? <UserButton size={50} /> : <> 
+              <SignInButton className="bg-red-500 text-white px-3 py-1 rounded-md cursor-pointer" />
+              </>
+        
+        }
         <div>
           <h1>Hello, {user?.firstName}</h1>
           <h1 className="text-sm text-slate-500">Premium User</h1>
@@ -55,6 +65,8 @@ const ResponsiveMenu = ({ openNav, setOpenNav }) => {
             >
               <li>Contact</li>
             </Link>
+            
+           
           </ul>
         </nav>
   </div>

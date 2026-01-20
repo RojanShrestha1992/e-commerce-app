@@ -5,6 +5,7 @@ import Loading from "../assets/loading4.webm";
 import ProductCard from "../components/ProductCard";
 import Pagination from "../components/Pagination";
 import Lottie from "lottie-react";
+import MobileFilter from "../components/MobileFilter";
 // import { Pagination } from "swiper/modules";
 // impot Pagination
 // import notfound from "../assets/notfound.json"
@@ -13,9 +14,10 @@ const Products = () => {
   const { data, fetchAllProducts } = useContext(DataContext);
   // console.log(data)
   const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("All");
+  const [category, setCategory] = useState("all");
   const [priceRange, setPriceRange] = useState([0, 1000]);
   const [page, setPage] = useState(1);
+  const [openFilter, setOpenFilter] = useState(false)
 
   useEffect(() => {
     fetchAllProducts();
@@ -23,11 +25,12 @@ const Products = () => {
 
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
+    setOpenFilter(false)
   };
   const filteredData = data?.filter(
     (item) =>
       item.title.toLowerCase().includes(search.toLowerCase()) &&
-      (category === "All" || item.category.name === category) &&
+      (category === "all" || item.category.name === category) &&
       item.price >= priceRange[0] &&
       item.price <= priceRange[1]
   );
@@ -38,6 +41,13 @@ const Products = () => {
   const dynamicPage = Math.ceil(filteredData?.length / 8);
   return (
     <div className="max-w-6xl mx-auto px-4 mb-10">
+      <MobileFilter openFilter={openFilter} setOpenFilter={setOpenFilter}      search={search}
+              setSearch={setSearch}
+              priceRange={priceRange}
+              setPriceRange={setPriceRange}
+              category={category}
+              setCategory={setCategory}
+              handleCategoryChange={handleCategoryChange}/>
       {data?.length > 0 ? (
         <>
           <div className="flex gap-8 ">
@@ -52,7 +62,7 @@ const Products = () => {
             />
             {filteredData?.length > 0 ? (
               <div className="flex flex-col justify-center items-center">
-                <div className="grid grid-cols-4 gap-7 mt-10 ">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-7 mt-10 ">
                   {filteredData
                     ?.slice(page * 8 - 8, page * 8)
                     .map((product, index) => {

@@ -37,7 +37,7 @@ const SingleProduct = () => {
       {singleProduct ? (
         <div className="px-4 pb-4 md:px-0">
           <Breadcrums title={singleProduct.title} />
-          <div className="max-w-6xl mx-auto md:px-6 grid grid-cols-2 gap-10">
+          <div className="max-w-6xl mx-auto md:px-6 grid grid-cols-1 md:grid-cols-2 gap-10">
             {/* product img  */}
             <div className=" items-center flex w-full h-110 justify-center">
               {/* img swiper  */}
@@ -74,7 +74,7 @@ const SingleProduct = () => {
             </div>
             {/* pro details  */}
             <div className="flex flex-col gap-5">
-              <h1 className="md:text-3xl font-bold text-gray-800">
+              <h1 className="md:text-3xl text-xl font-bold text-gray-800">
                 {singleProduct.title}
               </h1>
               <div className="text-gray-700">{singleProduct.category.name}</div>{" "}

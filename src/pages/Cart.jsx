@@ -27,10 +27,10 @@ const Cart = ({location,getLocation}) => {
 
   const totalPrice = cartItem.reduce((total, item) => total + item.quantity*item.price, 0);
   return (
-    <div className=" max-w-6xl mx-auto mb-5 ">
+    <div className=" max-w-6xl mx-auto mb-5 px-4 md:px-0">
       {cartItem.length > 0 ? (
         <div className="">
-          <h1 className="font-bold text-2xl">My Cart ({cartItem.length})</h1>
+          <h1 className="font-bold text-2xl mt-4 md:mt-0">My Cart ({cartItem.length})</h1>
           <div>
             <div className="mt-10">
               {cartItem.map((item, index) => {
@@ -43,10 +43,11 @@ const Cart = ({location,getLocation}) => {
                       <img
                         src={item.images[0]}
                         alt={item.title}
-                        className="w-20 h-20 rounded-md"
+                        className="w-20 h-20 cursor-pointer rounded-md"
+                         onClick={() => navigate(`/products/${item.id}`)}
                       />
                       <div>
-                        <h1 className="w-75 line-clamp-2">{item.title}</h1>
+                        <h1 className="md:w-75 w-60 line-clamp-2">{item.title}</h1>
                         <p className="text-red-500 font-semibold text-lg">
                           ${item.price}
                         </p>
@@ -65,7 +66,7 @@ const Cart = ({location,getLocation}) => {
               })}
             </div>
 
-            <div className="grid grid-cols-2 gap-20">
+            <div className="grid grid-cols-1 md:grid-cols-2  md:gap-20">
               <div className="bg-gray-100 rounded-md p-7 mt-4 space-y-2">
                 <h1 className="text-gray-800 font-bold text-xl">
                   Delivery Info

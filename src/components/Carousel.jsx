@@ -37,67 +37,6 @@ const Carousel = () => {
         {data?.slice(12, 20)?.map((item, index) => {
           return (
             <SwiperSlide className="items-center" key={index}>
-              {/* <div className="h-full w-full  flex items-center bg-linear-to-r from-[#0f0c29]  via-[#302b63] to-[#24243e] -z-10 ">
-                <div className="flex flex-col-reverse   md:flex-row  gap-10 justify-center  items-center px-4 md:px-10 ">
-               
-                  <div className="space-y-2 text-center md:text-left">
-                    <h3 className="text-red-500 font-semibold font-sans text-sm mt-4 md:mt-0 hidden md:block">
-                      Best in the World
-                    </h3>
-                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-bold uppercase line-clamp-2 md:w-125 text-white">
-                      {item.title}
-                    </h1>
-                    <p className=" max-w-xl sm:text-base md:text-lg line-clamp-3 text-gray-400  pr-7">
-                      {item.description}
-                    </p>
-                    <button
-                      onClick={() => navigate(`/products/${item.id}`)}
-                      className="bg-linear-to-r from-red-500 to-purple-500 text-white px-3 py-2 rounded-md cursor-pointer -mt-2 md:mt-2 mb-20"
-                    >
-                      Shop Now
-                    </button>
-                  </div>
-           
-                  <div>
-                    <img
-                      src={item.images[0]}
-                      alt={item.title}
-                      className="rounded-full w-60 h-60 md:w-80 md:h-80 lg:w-96 lg:h-96 p-3 mt-10 hover:scale-105 transition-all drop-shadow-xl  md:drop-shadow-2xl drop-shadow-red-400 "
-                    />
-                  </div>
-       
-                </div>
-              </div> */}
-
-              {/* <div
-                key={index}
-                className="bg-linear-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] -z-10"
-              >
-                <div className="flex flex-col md:flex-row gap-10 justify-center h-150 my-20 md:my-0 items-center px-4">
-                  <div className="md:space-y-6 space-y-3">
-                    <h3 className="text-red-500 font-semibold font-sans text-sm">
-                      Powering Your World with the Best in Electronics
-                    </h3>
-                    <h1 className="md:text-4xl text-xl font-bold uppercase line-clamp-2 md:line-clamp-3 md:w-125 text-white">
-                      {item.title}
-                    </h1>
-                    <p className="md:w-125 line-clamp-3 text-gray-400 pr-7">
-                      {item.description}
-                    </p>
-                    <button className="bg-linear-to-r from-red-500 to-purple-500 text-white px-3 py-2 rounded-md cursor-pointer mt-2">
-                      Shop Now
-                    </button>
-                  </div>
-                  <div>
-                    <img
-                      src={item.images[0]}
-                      alt={item.title}
-                      className="rounded-full w-137.5 hover:scale-105 transition-all shadow-2xl shadow-red-400"
-                    />
-                  </div>
-                </div>
-              </div> */}
-
               <div
                 key={index}
                 className="bg-linear-to-r from-[#0f0c29] via-[#302b63] to-[#24243e]"
@@ -140,6 +79,7 @@ const Carousel = () => {
           hover:opacity-90 transition
           mb-10 md:mt-0
         "
+                      onClick={() => navigate(`/products/${item.id}`)}
                     >
                       Shop Now
                     </button>

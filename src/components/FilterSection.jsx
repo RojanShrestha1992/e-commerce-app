@@ -6,7 +6,7 @@ const FilterSection = ({search,category,setCategory, setSearch, priceRange,handl
 
 
   return (
-    <div className="bg-gray-100 mt-10 p-4 rounded-md h-max">
+    <div className="bg-gray-100 mt-10 p-4 rounded-md h-max hidden md:block">
       <input
         type="text"
         placeholder="Search..."
@@ -27,14 +27,16 @@ const FilterSection = ({search,category,setCategory, setSearch, priceRange,handl
             </div>
           );
         })}
+
+
         {/* price  */}
         <h1 className="mt-5 font-semibold text-xl">Price</h1>
         <div className="flex flex-col gap-2">
           <label htmlFor="">Price Range: ${priceRange[0]} - ${priceRange[1]}</label>
-          <input type="range" min="0" max="1000" value={priceRange[1] } onChange={(e)=>setPriceRange([priceRange[0],Number(e.target.value)])}  />
+          <input type="range" min="0" max="200" value={priceRange[1] } onChange={(e)=>setPriceRange([priceRange[0],Number(e.target.value)])}  />
         </div>
         <button className="bg-red-500 text-white rounded-md px-3 py-1 mt-5 cursor-pointer"
-        onClick={()=>{ setSearch(""); setCategory("All"); setPriceRange([0,200])}}
+        onClick={()=>{ setSearch(""); setCategory("all"); setPriceRange([0,200])}}
         >
           Reset Filters
         </button>

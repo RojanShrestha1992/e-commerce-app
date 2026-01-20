@@ -10,6 +10,7 @@ import axios from "axios";
 import SingleProduct from "./pages/SingleProduct";
 import Footer from "./components/Footer";
 import CategoryPage from "./pages/CategoryPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 function App() {
   const [openDropDown, setOpenDropDown] = useState(false);
 
@@ -54,7 +55,7 @@ function App() {
         <Route path="/contact" element={<Contact />}></Route>
         <Route
           path="/cart"
-          element={<Cart location={location} getLocation={getLocation} />}
+          element={<ProtectedRoute><Cart location={location} getLocation={getLocation} /> </ProtectedRoute>}
         ></Route>
       </Routes>
       <Footer />
