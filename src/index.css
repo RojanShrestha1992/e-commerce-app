@@ -12,3 +12,10 @@ input {
   border: 1px solid #ccc;
   color: #333;
 }
+
+@media (max-width: 639px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important;
+  }
+}
