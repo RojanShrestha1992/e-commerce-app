@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import CategoryProduct from "../components/CategoryProduct";
 import Pagination from "../components/Pagination";
-import Loading from "../assets/Loading4.webm"
+import Loading from "../assets/loading4.webm"
 
 
 const CategoryPage = () => {

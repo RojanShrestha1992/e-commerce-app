@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import Breadcrums from "../components/Breadcrums";
 import { IoCartOutline } from "react-icons/io5";
 import { useCart } from "../context/useCart";
-import Loading from "../assets/Loading4.webm"
+import Loading from "../assets/loading4.webm"
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
