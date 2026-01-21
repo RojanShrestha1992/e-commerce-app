@@ -15,7 +15,7 @@ const Products = () => {
   // console.log(data)
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
-  const [priceRange, setPriceRange] = useState([0, 1000]);
+  const [priceRange, setPriceRange] = useState([0, 200]);
   const [page, setPage] = useState(1);
   const [openFilter, setOpenFilter] = useState(false)
 

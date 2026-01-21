@@ -22,7 +22,7 @@ const Navbar = ({ location, openDropDown, setOpenDropDown, getLocation }) => {
   const { cartItem } = useCart();
 
   return (
-    <div className="bg-white py-3 shadow-2xl h-16 px-4 md:px-0 ">
+    <div className="bg-white py-3 shadow-2xl h-16 px-4 z-10 md:px-0 ">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         {/* logo  */}
         <div className="flex gap-7 items-center">
@@ -55,7 +55,7 @@ const Navbar = ({ location, openDropDown, setOpenDropDown, getLocation }) => {
               </h1>
               <button
                 onClick={getLocation}
-                className="bg-red-500 text-white px-3 py-1 rounded-md cursor-pointer hover:bg-red-400"
+                className="bg-blue-500 text-white px-3 py-1 rounded-md cursor-pointer hover:bg-blue-400"
               >
                 Detect My Location
               </button>
@@ -71,7 +71,7 @@ const Navbar = ({ location, openDropDown, setOpenDropDown, getLocation }) => {
               className={({ isActive }) =>
                 `${
                   isActive
-                    ? "border-b-3 transition-all duration-200 border-red-500"
+                    ? "border-b-3 transition-all duration-200 border-blue-500"
                     : "text-black"
                 } cursor-pointer`
               }
@@ -83,7 +83,7 @@ const Navbar = ({ location, openDropDown, setOpenDropDown, getLocation }) => {
               className={({ isActive }) =>
                 `${
                   isActive
-                    ? "border-b-3 transition-all  duration-200 border-red-500"
+                    ? "border-b-3 transition-all  duration-200 border-blue-500"
                     : "text-black"
                 } cursor-pointer`
               }
@@ -95,7 +95,7 @@ const Navbar = ({ location, openDropDown, setOpenDropDown, getLocation }) => {
               className={({ isActive }) =>
                 `${
                   isActive
-                    ? "border-b-3 transition-all  duration-200 border-red-500"
+                    ? "border-b-3 transition-all  duration-200 border-blue-500"
                     : "text-black"
                 } cursor-pointer`
               }
@@ -107,7 +107,7 @@ const Navbar = ({ location, openDropDown, setOpenDropDown, getLocation }) => {
               className={({ isActive }) =>
                 `${
                   isActive
-                    ? "border-b-3 transition-all  duration-200 border-red-500"
+                    ? "border-b-3 transition-all  duration-200 border-blue-500"
                     : "text-black"
                 } cursor-pointer`
               }

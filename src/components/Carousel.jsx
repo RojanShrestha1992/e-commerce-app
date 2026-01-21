@@ -39,7 +39,10 @@ const Carousel = () => {
             <SwiperSlide className="items-center" key={index}>
               <div
                 key={index}
-                className="bg-linear-to-r from-[#0f0c29] via-[#302b63] to-[#24243e]"
+                // className="bg-linear-to-r from-[#0f0c29] via-[#302b63] to-[#24243e]"
+                // className="bg-linear-to-r from-[#0F172A] via-[#1E3A8A] to-[#312E81]"
+className="bg-linear-to-r from-[#020617] via-[#1E40AF] to-[#2563EB]"
+
               >
                 <div
                   className="

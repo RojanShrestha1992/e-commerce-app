@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import CategoryProduct from "../components/CategoryProduct";
 import Pagination from "../components/Pagination";
+import Loading from "../assets/Loading4.webm"
+
 
 const CategoryPage = () => {
   const [page, setPage] = useState(1);
@@ -54,7 +56,11 @@ const CategoryPage = () => {
           />
         </div>
       ) : (
-        <div>eroor</div>
+             <div className='flex items-center justify-center h-screen'>
+                               <video muted autoPlay loop>
+                                   <source src={Loading} type='video/webm' />
+                               </video>
+                           </div>
       )}
     </div>
   );

@@ -8,7 +8,8 @@ import Footer from '../components/Footer'
 
 const Home = () => {
   return (
-    <div>
+    <div className=" bg-linear-to-br from-slate-50 via-indigo-50 to-slate-100 "
+>
       <Carousel/>
       <MidBanner/>
       <Features/>

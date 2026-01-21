@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Breadcrums from "../components/Breadcrums";
 import { IoCartOutline } from "react-icons/io5";
 import { useCart } from "../context/useCart";
+import Loading from "../assets/Loading4.webm"
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -36,7 +37,7 @@ const SingleProduct = () => {
     <>
       {singleProduct ? (
         <div className="px-4 pb-4 md:px-0">
-          <Breadcrums title={singleProduct.title} />
+          <Breadcrums title={singleProduct.title} category={singleProduct.category.name} pId={singleProduct.category.id} />
           <div className="max-w-6xl mx-auto md:px-6 grid grid-cols-1 md:grid-cols-2 gap-10">
             {/* product img  */}
             <div className=" items-center flex w-full h-110 justify-center">
@@ -97,7 +98,7 @@ const SingleProduct = () => {
               <div className="flex gap-4 mt-4">
                 <button
                   onClick={() => addToCart(singleProduct)}
-                  className="px-6 cursor-pointer flex gap-2 py-2 text-lg bg-red-500 text-white rounded-md items-center"
+                  className="px-6 cursor-pointer flex gap-2 py-2 text-lg bg-blue-500 text-white rounded-md items-center"
                 >
                   <IoCartOutline className="w-6 h-6" /> Add to Cart
                 </button>
@@ -106,7 +107,11 @@ const SingleProduct = () => {
           </div>
         </div>
       ) : (
-        <div></div>
+      <div className='flex items-center justify-center h-screen'>
+                        <video muted autoPlay loop>
+                            <source src={Loading} type='video/webm' />
+                        </video>
+                    </div>
       )}
     </>
   );

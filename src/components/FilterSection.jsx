@@ -35,7 +35,7 @@ const FilterSection = ({search,category,setCategory, setSearch, priceRange,handl
           <label htmlFor="">Price Range: ${priceRange[0]} - ${priceRange[1]}</label>
           <input type="range" min="0" max="200" value={priceRange[1] } onChange={(e)=>setPriceRange([priceRange[0],Number(e.target.value)])}  />
         </div>
-        <button className="bg-red-500 text-white rounded-md px-3 py-1 mt-5 cursor-pointer"
+        <button className="bg-blue-700 text-white rounded-md px-3 py-1 mt-5 cursor-pointer"
         onClick={()=>{ setSearch(""); setCategory("all"); setPriceRange([0,200])}}
         >
           Reset Filters

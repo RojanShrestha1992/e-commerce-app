@@ -11,22 +11,22 @@ const Footer = () => {
         <div className='mb-6 md:mb-0'>
             <Link to='/'>
               {/* <img src={Logo} alt="" className='w-32'/> */}
-              <h1 className='text-red-500 text-2xl font-bold'>Bazzar</h1>
+              <h1 className='text-blue-500 text-2xl font-bold'>Bazzar</h1>
             </Link>
-            <p className='mt-2 text-sm'>Powering Your World with the Best in Electronics.</p>
-            <p className='mt-2 text-sm'>123 Electronics St, Style City, NY 10001</p>
+            <p className='mt-2 text-sm'>Powering Your World with the Best.</p>
+            <p className='mt-2 text-sm'>Kathmandu, Nepal</p>
             <p className='text-sm'>Email: support@Bazzar.com</p>
-            <p className='text-sm'>Phone: (123) 456-7890</p>
+            <p className='text-sm'>Phone: +977 9823549623</p>
         </div>
         {/* customer service link */}
         <div className='mb-6 md:mb-0'>
             <h3 className='text-xl font-semibold'>Customer Service</h3>
             <ul className='mt-2 text-sm space-y-2'>
-                <li>Contact Us</li>
-                <li>Shipping & Returns</li>
-                <li>FAQs</li>
-                <li>Order Tracking</li>
-                <li>Size Guide</li>
+                <li ><span className='cursor-pointer hover:border-b-2'> Contact Us </span></li>
+                <li><span className='cursor-pointer hover:border-b-2'>Shipping & Returns</span></li>
+                <li><span className='cursor-pointer hover:border-b-2'>FAQs</span></li>
+                <li><span className='cursor-pointer hover:border-b-2'>Order Tracking</span></li>
+                <li><span className='cursor-pointer hover:border-b-2'>Size Guide</span></li>
             </ul>
         </div>
         {/* social media links */}
@@ -49,13 +49,13 @@ const Footer = () => {
                 placeholder='Your email address'
                 className='w-full p-2 rounded-l-md  text-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500'
                 />
-                <button type='submit' className='bg-red-600 text-white px-4 rounded-r-md hover:bg-red-700'>Subscribe</button>
+                <button type='submit' className='bg-blue-600 text-white px-4 rounded-r-md hover:bg-blue-700'>Subscribe</button>
             </form>
         </div>
       </div>
       {/* bottom section */}
       <div className='mt-8 border-t border-gray-700 pt-6 text-center text-sm'>
-        <p>&copy; {new Date().getFullYear()} <span className='text-red-500'>Bazzar</span>. All rights reserved</p>
+        <p>&copy; {new Date().getFullYear()} <span className='text-blue-500'>Bazzar</span>. All rights reserved</p>
       </div>
     </footer>
   )

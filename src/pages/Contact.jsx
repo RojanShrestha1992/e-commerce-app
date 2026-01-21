@@ -2,11 +2,11 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <section className="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50 to-slate-100 flex items-center justify-center px-4 py-16">
+    <section className="min-h-screen flex items-center justify-center px-4 py-16">
       
       <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-14">
 
-        {/* LEFT — INFORMATION */}
+        
         <div className="space-y-6">
           <span className="inline-block text-sm font-semibold text-blue-600">
             CUSTOMER SUPPORT
@@ -23,9 +23,9 @@ const Contact = () => {
           </p>
 
           <div className="space-y-3 text-slate-700">
-            <p><strong>Address:</strong> 123 Tech Lane, Kolkata, India</p>
+            <p><strong>Address:</strong> Kathmandu, Nepal</p>
             <p><strong>Email:</strong> support@bazzar.com</p>
-            <p><strong>Phone:</strong> +91 98765 43210</p>
+            <p><strong>Phone:</strong> +977 98235496623</p>
           </div>
         </div>
 

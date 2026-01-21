@@ -25,7 +25,7 @@ const Pagination = ({ page, pageHandler, dynamicPage }) => {
       <button
         disabled={page === 1}
         className={`${
-          page === 1 ? "bg-red-400" : "bg-red-500"
+          page === 1 ? "bg-blue-400" : "bg-blue-600"
         } text-white rounded-md cursor-pointer px-3 py-1`}
         onClick={() => pageHandler(page - 1)}
       >
@@ -36,7 +36,7 @@ const Pagination = ({ page, pageHandler, dynamicPage }) => {
           <span
             key={index}
             onClick={() => typeof item === "number" && pageHandler(item)}
-            className={`cursor-pointer ${item === page ? "font-bold text-red-600" : ""}`}
+            className={`cursor-pointer ${item === page ? "font-bold text-blue-600" : ""}`}
           >
             {item}
           </span>
@@ -45,7 +45,7 @@ const Pagination = ({ page, pageHandler, dynamicPage }) => {
       <button
         disabled={page === dynamicPage}
         className={`${
-          page === dynamicPage ? "bg-red-400" : "bg-red-500"
+          page === dynamicPage ? "bg-blue-400" : "bg-blue-600"
         } text-white rounded-md cursor-pointer px-3 py-1`}
         onClick={() => {
           pageHandler(page + 1);

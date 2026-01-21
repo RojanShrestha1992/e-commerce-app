@@ -20,7 +20,7 @@ const ProductCard = ({ product }) => {
       <h1 className="line-clamp-2 p-1 font-semibold ">{product.title}</h1>
       <p className="my-1 text-lg text-gray-800 font-bold">${product.price}</p>
       <button
-        className="bg-red-500 px-3 py-2 text-lg rounded-md text-white w-full cursor-pointer flex gap-2 items-center justify-center font-semibold"
+        className=" bg-blue-600 hover:bg-blue-700   px-3 py-2 text-lg rounded-md text-white w-full cursor-pointer flex gap-2 items-center justify-center font-semibold"
         onClick={()=>addToCart(product)}
       >
         {" "}

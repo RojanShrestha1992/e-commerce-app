@@ -33,7 +33,7 @@ const CategoryProduct = ({ product }) => {
           </p>
           <button
             onClick={() => addToCart(product)}
-            className="bg-red-500 text-white px-3 py-1 rounded-md"
+            className="bg-blue-500 text-white px-3 py-1 rounded-md"
           >
             Add to Cart
           </button>

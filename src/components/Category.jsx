@@ -15,7 +15,7 @@ const Category = () => {
  
 
     <>
-      <div className="max-w-6xl mx-auto  p-4 ">
+      <div className="max-w-6xl mx-auto  p-4  ">
         <h1 className=" py-4 font-bold text-3xl text-gray-900">Shop By Category</h1>
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
           {category?.slice(0,5).map((item, index) => {
