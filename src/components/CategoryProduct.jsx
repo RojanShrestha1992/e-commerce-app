@@ -22,14 +22,12 @@ const CategoryProduct = ({ product }) => {
             {product.title}
           </h1>
           <p className="font-semibold flex items-center md:text-lg text-sm">
-            $<span className="md:text-4xl text-3xl">{product.price}</span> (
-            {product.discount}% off)
+            $<span className="md:text-4xl text-3xl">{product.price}</span> 
           </p>
           <p className="text-sm">
-            FREE delivery <span className="font-semibold">Fri, 18 Apr</span>{" "}
+            FREE delivery
             <br />
-            Or fastest delivery{" "}
-            <span className="font-semibold">Tomorrow, 17 Apr</span>
+            
           </p>
           <button
             onClick={() => addToCart(product)}
