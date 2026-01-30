@@ -39,6 +39,7 @@ const MobileFilter = ({
             {categoryOnly?.map((item, index) => {
               return (
                 <div key={index} className="flex gap-2">
+                  <label className="flex gap-2 items-center flex-row-reverse cursor-pointer uppercase">{item}
                   <input
                     type="checkbox"
                     name={item}
@@ -47,7 +48,8 @@ const MobileFilter = ({
                     value={item}
                     onChange={handleCategoryChange}
                   />
-                  <button className="cursor-pointer uppercase">{item}</button>
+
+                  </label>
                 </div>
               );
             })}

@@ -20,10 +20,10 @@ const FilterSection = ({search,category,setCategory, setSearch, priceRange,handl
         {categoryOnly?.map((item, index) => {
           return (
             <div key={index} className="flex gap-2">
+              <label  className="cursor-pointer uppercase items-center gap-2  flex">
               <input type="checkbox" name={item} checked={category === item} id="" value={item} onChange={handleCategoryChange} />
-              <button  className="cursor-pointer uppercase">
                 {item}
-              </button>
+              </label>
             </div>
           );
         })}
